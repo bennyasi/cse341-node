@@ -1,10 +1,11 @@
 {
   "name": "cse341",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CSE 341 Contacts API",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "swagger": "node swagger.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,8 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^4.19.2",
-    "mongodb": "^7.5.0"
+    "mongodb": "^7.5.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   }
 }

@@ -1,0 +1,164 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Contacts API",
+    "description": "Contacts API Documentation",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Home Route",
+        "description": "Returns the API home page.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "get": {
+        "summary": "Get all contacts",
+        "responses": {
+          "200": {
+            "description": "A list of contacts"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new contact",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Contact created successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "get": {
+        "summary": "Get a single contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact returned successfully"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contact updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contact deleted successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "favoriteColor",
+        "birthday"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Ada"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Lovelace"
+        },
+        "email": {
+          "type": "string",
+          "example": "ada@example.com"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "Blue"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "1815-12-10"
+        }
+      }
+    }
+  }
+}
