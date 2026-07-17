@@ -2,16 +2,15 @@ const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
   info: {
-    title: "Contacts API",
-    description: "CSE 341 Contacts API Documentation",
+    title: "Library API",
+    description: "CSE 341 Project 3 - Library API",
     version: "1.0.0"
   },
-  host: "cse341-node-1-onl8.onrender.com",
-  schemes: ["https"]
+  host: "localhost:8080",
+  schemes: ["http"]
 };
 
 const outputFile = "./swagger.json";
-
 const endpointsFiles = [
   "./routes/index.js"
 ];
