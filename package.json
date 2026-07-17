@@ -1,22 +1,33 @@
 {
-  "name": "cse341",
+  "name": "library-api",
   "version": "1.0.0",
-  "description": "CSE 341 Contacts API",
+  "description": "CSE 341 Project 2 - Library API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "nodemon server.js",
     "swagger": "node swagger.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "mongodb",
+    "swagger",
+    "library-api",
+    "cse341"
+  ],
+  "author": "Benedicta Etim",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^4.19.2",
+    "joi": "^17.13.3",
     "mongodb": "^7.5.0",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

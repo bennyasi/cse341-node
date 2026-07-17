@@ -1,0 +1,103 @@
+#######################################################
+# HOME
+#######################################################
+
+GET http://localhost:8080/
+
+#######################################################
+# BOOKS
+#######################################################
+
+### Get all books
+GET http://localhost:8080/books
+
+###
+
+### Get one book
+GET http://localhost:8080/books/YOUR_BOOK_ID
+
+###
+
+### Create book
+POST http://localhost:8080/books
+Content-Type: application/json
+
+{
+  "title": "Atomic Habits",
+  "author": "James Clear",
+  "genre": "Self Help",
+  "isbn": "9780735211292",
+  "publishedYear": 2018,
+  "available": true,
+  "pages": 320
+}
+
+###
+
+### Update book
+PUT http://localhost:8080/books/YOUR_BOOK_ID
+Content-Type: application/json
+
+{
+  "title": "Atomic Habits Updated",
+  "author": "James Clear",
+  "genre": "Self Help",
+  "isbn": "9780735211292",
+  "publishedYear": 2019,
+  "available": false,
+  "pages": 330
+}
+
+###
+
+### Delete book
+DELETE http://localhost:8080/books/YOUR_BOOK_ID
+
+#######################################################
+# TEAMS
+#######################################################
+
+### Get all teams
+GET http://localhost:8080/teams
+
+###
+
+### Get one team
+GET http://localhost:8080/teams/YOUR_TEAM_ID
+
+###
+
+### Create team
+POST http://localhost:8080/teams
+Content-Type: application/json
+
+{
+  "teamName": "Lions FC",
+  "city": "Lagos",
+  "coach": "John Smith",
+  "captain": "Michael Johnson",
+  "founded": 1995,
+  "stadium": "National Stadium",
+  "championships": 5
+}
+
+###
+
+### Update team
+PUT http://localhost:8080/teams/YOUR_TEAM_ID
+Content-Type: application/json
+
+{
+  "teamName": "Lions United",
+  "city": "Lagos",
+  "coach": "David Brown",
+  "captain": "Michael Johnson",
+  "founded": 1995,
+  "stadium": "National Stadium",
+  "championships": 6
+}
+
+###
+
+### Delete team
+DELETE http://localhost:8080/teams/YOUR_TEAM_ID

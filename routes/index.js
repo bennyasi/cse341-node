@@ -1,9 +1,12 @@
 const router = require("express").Router();
 
+// Home route
 router.get("/", (req, res) => {
-  res.send("Contacts API");
+  res.status(200).send("Library API");
 });
 
-router.use("/contacts", require("./contacts"));
+// Routes
+router.use("/books", require("./books"));
+router.use("/teams", require("./teams"));
 
 module.exports = router;

@@ -15,20 +15,28 @@ const port = process.env.PORT || 8080;
 // Middleware
 app.use(express.json());
 
-// Swagger UI
+// Swagger
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Routes
 app.use("/", require("./routes"));
 
-// Connect to MongoDB and start server
+// Initialize MongoDB and start server
 mongodb.initDb((err) => {
   if (err) {
-    console.error(err);
-  } else {
-    app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
-      console.log(`Swagger Docs: http://localhost:${port}/api-docs`);
-    });
+    console.error("Database connection failed:", err);
+    process.exit(1);
   }
+
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+
+    if (process.env.RENDER_EXTERNAL_URL) {
+      console.log(
+        `Swagger Docs: ${process.env.RENDER_EXTERNAL_URL}/api-docs`
+      );
+    } else {
+      console.log(`Swagger Docs: http://localhost:${port}/api-docs`);
+    }
+  });
 });
