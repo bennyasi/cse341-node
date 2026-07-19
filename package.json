@@ -1,7 +1,7 @@
 {
   "name": "library-api",
   "version": "1.0.0",
-  "description": "CSE 341 Project 3 - Library API",
+  "description": "CSE 341 Project 1- Contacts API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
