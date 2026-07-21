@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon --quiet server.js",
-    "swagger": "node swagger.js"
+    "swagger": "node swagger.js",
+    "build": "npm run swagger"
   },
   "keywords": [
     "express",
