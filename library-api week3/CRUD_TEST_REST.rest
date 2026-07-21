@@ -1,0 +1,82 @@
+### Home Route
+GET http://localhost:8080/
+
+### ==========================
+### BOOKS
+### ==========================
+
+### Get All Books
+GET http://localhost:8080/books
+
+### Get Book By ID
+GET http://localhost:8080/books/REPLACE_BOOK_ID
+
+### Create Book
+POST http://localhost:8080/books
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "isbn": "9780743273565",
+  "genre": "Classic",
+  "publishedYear": 1925,
+  "publisher": "Scribner",
+  "pages": 180,
+  "available": true
+}
+
+### Update Book
+PUT http://localhost:8080/books/REPLACE_BOOK_ID
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby (Updated)",
+  "author": "F. Scott Fitzgerald",
+  "isbn": "9780743273565",
+  "genre": "Classic",
+  "publishedYear": 1925,
+  "publisher": "Charles Scribner's Sons",
+  "pages": 200,
+  "available": false
+}
+
+### Delete Book
+DELETE http://localhost:8080/books/REPLACE_BOOK_ID
+
+### ==========================
+### TEAMS
+### ==========================
+
+### Get All Teams
+GET http://localhost:8080/teams
+
+### Get Team By ID
+GET http://localhost:8080/teams/REPLACE_TEAM_ID
+
+### Create Team
+POST http://localhost:8080/teams
+Content-Type: application/json
+
+{
+  "name": "Development Team",
+  "department": "IT",
+  "leader": "John Doe",
+  "email": "john.doe@example.com",
+  "members": 8
+}
+
+### Update Team
+PUT http://localhost:8080/teams/REPLACE_TEAM_ID
+Content-Type: application/json
+
+{
+  "name": "Backend Team",
+  "department": "Software Development",
+  "leader": "Jane Smith",
+  "email": "jane.smith@example.com",
+  "members": 10
+}
+
+### Delete Team
+DELETE http://localhost:8080/teams/REPLACE_TEAM_ID
