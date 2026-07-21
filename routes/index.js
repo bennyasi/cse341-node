@@ -1,11 +1,10 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
-// Home route
-router.get("/", (req, res) => {
-  res.status(200).send("Contacts API");
+router.use('/books', require('./books'));
+router.use('/authors', require('./authors'));
+
+router.get('/', (req, res) => {
+    res.send('Welcome to the Library API');
 });
-
-// Contacts routes
-router.use("/contacts", require("./contacts"));
 
 module.exports = router;
