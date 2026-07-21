@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-router.use('/books', require('./books'));
-router.use('/authors', require('./authors'));
+router.use('/', require('./swagger'));
+router.use('/contacts', require('./contacts'));
 
 router.get('/', (req, res) => {
-    res.send('Welcome to the Library API');
+    res.send('Welcome to the Contacts API');
 });
 
 module.exports = router;
