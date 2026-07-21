@@ -2,11 +2,11 @@ const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
   info: {
-    title: "Contacts API",
-    description: "CSE 341 Contacts API",
+    title: "Library API",
+    description: "CSE 341 Library API",
     version: "1.0.0"
   },
-  host: "cse341-node-iyr8.onrender.com", // Change this to your current Render URL
+  host: "cse341-node.git", // Update this to your deployed Render URL if needed
   schemes: ["https"]
 };
 
