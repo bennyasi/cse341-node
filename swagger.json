@@ -5,15 +5,15 @@
     "description": "CSE 341 Contacts API",
     "version": "1.0.0"
   },
-  "host": "cse341-node-1-onl8.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/": {
       "get": {
-        "description": "Root endpoint",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -23,7 +23,7 @@
     },
     "/contacts/": {
       "get": {
-        "description": "Get all contacts",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -34,20 +34,29 @@
         }
       },
       "post": {
-        "description": "Create a new contact",
+        "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": { "type": "string" },
-                "lastName": { "type": "string" },
-                "email": { "type": "string" },
-                "favoriteColor": { "type": "string" },
-                "birthday": { "type": "string" }
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "favoriteColor": {
+                  "example": "any"
+                },
+                "birthday": {
+                  "example": "any"
+                }
               }
             }
           }
@@ -55,9 +64,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
@@ -67,7 +73,7 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "Get contact by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -89,7 +95,7 @@
         }
       },
       "put": {
-        "description": "Update a contact by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -100,25 +106,34 @@
           {
             "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": { "type": "string" },
-                "lastName": { "type": "string" },
-                "email": { "type": "string" },
-                "favoriteColor": { "type": "string" },
-                "birthday": { "type": "string" }
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "favoriteColor": {
+                  "example": "any"
+                },
+                "birthday": {
+                  "example": "any"
+                }
               }
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Updated Successfully"
+            "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -126,7 +141,7 @@
         }
       },
       "delete": {
-        "description": "Delete a contact by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -137,7 +152,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Deleted Successfully"
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
