@@ -4,6 +4,7 @@ dns.setServers(["8.8.8.8", "8.8.4.4"]);
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors"); // <-- Added CORS package
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 
@@ -13,6 +14,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 // Middleware
+app.use(cors()); // <-- Enable CORS for all routes (including Swagger UI requests)
 app.use(express.json());
 
 // Swagger
