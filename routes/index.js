@@ -1,9 +1,12 @@
 const router = require('express').Router();
 const baseController = require('../controllers/index');
 
+// Home route
 router.get('/', baseController.home);
+
+// Resource routes
 router.use('/books', require('./books'));
 router.use('/teams', require('./teams'));
-router.use('/api-docs', require('./swagger')); // if you have a swagger route file
+router.use('/api-docs', require('./swagger'));
 
 module.exports = router;
