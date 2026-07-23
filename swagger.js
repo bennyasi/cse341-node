@@ -6,10 +6,8 @@ const doc = {
     description: "CSE 341 Contacts API",
     version: "1.0.0"
   },
-  host: process.env.RENDER_EXTERNAL_URL
-    ? process.env.RENDER_EXTERNAL_URL.replace(/^https?:\/\//, "")
-    : "localhost:8080",
-  schemes: [process.env.RENDER_EXTERNAL_URL ? "https" : "http"]
+  host: "cse341-node-1-onl8.onrender.com",
+  schemes: ["https"]
 };
 
 const outputFile = "./swagger.json";
