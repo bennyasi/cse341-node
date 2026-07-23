@@ -197,8 +197,8 @@
                   "example": "leader@example.com"
                 },
                 "members": {
-                  "type": "integer",
-                  "example": 3
+                  "type": "string",
+                  "example": "Benedicta Etim, Keith Worsham, Pam Worsham"
                 }
               }
             }
@@ -268,8 +268,8 @@
                   "example": "leader@example.com"
                 },
                 "members": {
-                  "type": "integer",
-                  "example": 3
+                  "type": "string",
+                  "example": "Benedicta Etim, Keith Worsham, Pam Worsham"
                 }
               }
             }
