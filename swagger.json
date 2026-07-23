@@ -46,16 +46,16 @@
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "any"
+                  "example": "The Pragmatic Programmer"
                 },
                 "author": {
-                  "example": "any"
+                  "example": "Andrew Hunt"
                 },
                 "year": {
-                  "example": "any"
+                  "example": 1999
                 },
                 "genre": {
-                  "example": "any"
+                  "example": "Software Engineering"
                 }
               }
             }
@@ -113,16 +113,16 @@
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "any"
+                  "example": "Clean Code"
                 },
                 "author": {
-                  "example": "any"
+                  "example": "Robert C. Martin"
                 },
                 "year": {
-                  "example": "any"
+                  "example": 2008
                 },
                 "genre": {
-                  "example": "any"
+                  "example": "Programming"
                 }
               }
             }
@@ -185,19 +185,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "Engineering Team A"
                 },
                 "department": {
-                  "example": "any"
+                  "example": "Development"
                 },
                 "leader": {
-                  "example": "any"
+                  "example": "Michael Bowman"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "leader@example.com"
                 },
                 "members": {
-                  "example": "any"
+                  "example": "Keith Worsham, Pam Worsham"
                 }
               }
             }
@@ -255,19 +255,19 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "Engineering Team A"
                 },
                 "department": {
-                  "example": "any"
+                  "example": "Development"
                 },
                 "leader": {
-                  "example": "any"
+                  "example": "Michael Bowman"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "leader@example.com"
                 },
                 "members": {
-                  "example": "any"
+                  "example": "Keith Worsham, Pam Worsham"
                 }
               }
             }
