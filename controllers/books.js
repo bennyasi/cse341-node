@@ -1,119 +1,94 @@
-const mongodb = require("../data/database");
-const { ObjectId } = require("mongodb");
+const mongodb = require('../data/database');
+const ObjectId = require('mongodb').ObjectId;
 
-// GET all books
-const getAllBooks = async (req, res) => {
+const getAllBooks = async (req, res, next) => {
   try {
-    const db = mongodb.getDatabase();
-    const result = await db.collection("books").find();
+    const result = await mongodb.getDatabase().db().collection('books').find();
     const books = await result.toArray();
-
-    res.setHeader("Content-Type", "application/json");
+    res.setHeader('Content-Type', 'application/json');
     res.status(200).json(books);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message || 'Some error occurred while retrieving books.' });
   }
 };
 
-// GET book by ID
-const getSingleBook = async (req, res) => {
+const getBookById = async (req, res, next) => {
   try {
-    const bookId = new ObjectId(req.params.id);
-
-    const db = mongodb.getDatabase();
-    const result = await db.collection("books").find({ _id: bookId });
-    const book = await result.toArray();
-
-    if (book.length === 0) {
-      return res.status(404).json({ message: "Book not found" });
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json('Must use a valid book id to find a book.');
     }
-
-    res.status(200).json(book[0]);
+    const bookId = new ObjectId(req.params.id);
+    const result = await mongodb.getDatabase().db().collection('books').find({ _id: bookId });
+    const books = await result.toArray();
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(books[0]);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message || 'Error occurred while retrieving the book.' });
   }
 };
 
-// POST new book
-const createBook = async (req, res) => {
+const createBook = async (req, res, next) => {
   try {
     const book = {
       title: req.body.title,
       author: req.body.author,
-      isbn: req.body.isbn,
-      genre: req.body.genre,
-      publishedYear: req.body.publishedYear,
-      publisher: req.body.publisher,
-      pages: req.body.pages,
-      available: req.body.available
+      year: req.body.year,
+      genre: req.body.genre
     };
-
-    const db = mongodb.getDatabase();
-    const response = await db.collection("books").insertOne(book);
-
+    const response = await mongodb.getDatabase().db().collection('books').insertOne(book);
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
-      res.status(500).json({ message: "Failed to create book." });
+      res.status(500).json(response.error || 'Some error occurred while creating the book.');
     }
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message || 'Error occurred while creating the book.' });
   }
 };
 
-// PUT book
-const updateBook = async (req, res) => {
+const updateBook = async (req, res, next) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json('Must use a valid book id to update a book.');
+    }
     const bookId = new ObjectId(req.params.id);
-
     const book = {
       title: req.body.title,
       author: req.body.author,
-      isbn: req.body.isbn,
-      genre: req.body.genre,
-      publishedYear: req.body.publishedYear,
-      publisher: req.body.publisher,
-      pages: req.body.pages,
-      available: req.body.available
+      year: req.body.year,
+      genre: req.body.genre
     };
-
-    const db = mongodb.getDatabase();
-    const response = await db.collection("books").replaceOne(
-      { _id: bookId },
-      book
-    );
-
+    const response = await mongodb.getDatabase().db().collection('books').replaceOne({ _id: bookId }, book);
     if (response.modifiedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(404).json({ message: "Book not found." });
+      res.status(500).json(response.error || 'Some error occurred while updating the book.');
     }
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message || 'Error occurred while updating the book.' });
   }
 };
 
-// DELETE book
-const deleteBook = async (req, res) => {
+const deleteBook = async (req, res, next) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json('Must use a valid book id to delete a book.');
+    }
     const bookId = new ObjectId(req.params.id);
-
-    const db = mongodb.getDatabase();
-    const response = await db.collection("books").deleteOne({ _id: bookId });
-
+    const response = await mongodb.getDatabase().db().collection('books').deleteOne({ _id: bookId });
     if (response.deletedCount > 0) {
-      res.status(200).json({ message: "Book deleted successfully." });
+      res.status(204).send();
     } else {
-      res.status(404).json({ message: "Book not found." });
+      res.status(500).json(response.error || 'Some error occurred while deleting the book.');
     }
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message || 'Error occurred while deleting the book.' });
   }
 };
 
 module.exports = {
   getAllBooks,
-  getSingleBook,
+  getBookById,
   createBook,
   updateBook,
   deleteBook

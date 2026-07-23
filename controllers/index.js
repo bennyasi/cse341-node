@@ -1,12 +1,7 @@
-const router = require('express').Router();
-const baseController = require('../controllers/index');
+const home = (req, res) => {
+  res.send('Welcome to the Library API');
+};
 
-// Home route
-router.get('/', baseController.home);
-
-// Resource routes
-router.use('/books', require('./books'));
-router.use('/teams', require('./teams'));
-router.use('/swagger', require('./swagger'));
-
-module.exports = router;
+module.exports = {
+  home
+};
