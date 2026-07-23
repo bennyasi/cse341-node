@@ -1,0 +1,36 @@
+{
+  "name": "library-api",
+  "version": "1.0.0",
+  "description": "CSE 341 Project 3- library API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon --quiet server.js",
+    "swagger": "node swagger.js"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "swagger",
+    "library-api",
+    "books",
+    "teams",
+    "cse341",
+    "api"
+  ],
+  "author": "Benedicta Etim",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "joi": "^17.13.3",
+    "mongodb": "^7.5.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
